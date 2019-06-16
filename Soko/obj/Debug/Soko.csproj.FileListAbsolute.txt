@@ -28,3 +28,5 @@ D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.csproj.Generat
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.csproj.CoreCompileInputs.cache
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.exe
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.pdb
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Rules.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Rules.baml

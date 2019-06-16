@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +72,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Rules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Map.cs" />
@@ -113,6 +120,12 @@
   <ItemGroup>
     <Resource Include="tiles\floor.png" />
     <Resource Include="tiles\floor_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RulesShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

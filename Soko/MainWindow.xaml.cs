@@ -571,5 +571,12 @@ namespace Soko
 
         }
 
+        private void rule_Click(object sender, RoutedEventArgs e)
+        {
+            Rules rules = new Rules();
+            rules.Show();
+        }
+
+       
     }
 }

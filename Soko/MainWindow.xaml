@@ -10,6 +10,11 @@
         <Canvas.Background>
             <ImageBrush x:Name="bgBrush" ImageSource="tiles/floor_stop.png" TileMode="Tile" ViewportUnits ="Absolute" Viewport="0, 0, 128, 128"/>
         </Canvas.Background>
+        <Button x:Name="rule" Content="Rules" Canvas.Left="859" Canvas.Top="665" Width="147" Height="62" Click="rule_Click" FontSize="24" Foreground="#FFBA3300" BorderBrush="#FF1F1F1F">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
     </Canvas>
-    
+
 </Window>
