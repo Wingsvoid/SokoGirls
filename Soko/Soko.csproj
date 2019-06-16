@@ -98,16 +98,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="tiles\floor.jpg" />
-    <Resource Include="tiles\floor_stop.jpg" />
     <Resource Include="tiles\wall.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="sprites\char_blue.png" />
     <Resource Include="sprites\char_red.png" />
     <Resource Include="sprites\chest_blue.png" />
     <Resource Include="sprites\chest_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles\floor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles\floor_stop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles\floor_blue.jpg" />
+    <Resource Include="tiles\floor_red.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

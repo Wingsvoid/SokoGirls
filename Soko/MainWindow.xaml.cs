@@ -59,8 +59,8 @@ namespace Soko
         public MainWindow()
         {
             InitializeComponent();
-            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
-            CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
+           // CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
+           CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
         }
         private void CreateNewGame(Map newMap)
         {
@@ -87,9 +87,9 @@ namespace Soko
             rect_Chest_Blue = new Rectangle();
 
             //Указание источников изображения для кистей
-            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/wall.jpg", UriKind.Absolute));
+            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
             ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.jpg", UriKind.Absolute));
-            ib_DeadEndCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
+            //ib_DeadEndCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/wall.jpg", UriKind.Absolute));
             ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
             ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
             ib_Player_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_red.png", UriKind.Absolute));

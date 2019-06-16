@@ -8,7 +8,7 @@
         Title="SokoGirls" Height="768" Width="1024" WindowState="Maximized" KeyDown="GameScreen_KeyDown">
     <Canvas x:Name="scene" Margin="0,0,0,0" MinWidth="100" MinHeight="100">
         <Canvas.Background>
-            <ImageBrush x:Name="bgBrush" ImageSource="tiles/wall.jpg" TileMode="Tile" ViewportUnits ="Absolute" Viewport="0, 0, 128, 128"/>
+            <ImageBrush x:Name="bgBrush" ImageSource="tiles/floor_stop.jpg" TileMode="Tile" ViewportUnits ="Absolute" Viewport="0, 0, 128, 128"/>
         </Canvas.Background>
     </Canvas>
     
