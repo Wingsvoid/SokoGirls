@@ -1,0 +1,15 @@
+C:\Users\wings\Desktop\Soko-master\Soko\bin\Debug\Soko.exe.config
+C:\Users\wings\Desktop\Soko-master\Soko\bin\Debug\Soko.exe
+C:\Users\wings\Desktop\Soko-master\Soko\bin\Debug\Soko.pdb
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.csprojAssemblyReference.cache
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\MainWindow.g.cs
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\App.g.cs
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko_MarkupCompile.cache
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko_MarkupCompile.lref
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\MainWindow.baml
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.g.resources
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.Properties.Resources.resources
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.csproj.GenerateResource.cache
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.csproj.CoreCompileInputs.cache
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.exe
+C:\Users\wings\Desktop\Soko-master\Soko\obj\Debug\Soko.pdb
