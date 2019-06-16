@@ -59,8 +59,8 @@ namespace Soko
         public MainWindow()
         {
             InitializeComponent();
-           // CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
-           CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
+            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
+            CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
         }
         private void CreateNewGame(Map newMap)
         {
@@ -87,11 +87,11 @@ namespace Soko
             rect_Chest_Blue = new Rectangle();
 
             //Указание источников изображения для кистей
-            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
-            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.jpg", UriKind.Absolute));
+            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.png", UriKind.Absolute));
+            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.png", UriKind.Absolute));
             //ib_DeadEndCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/wall.jpg", UriKind.Absolute));
-            ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
-            ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.jpg", UriKind.Absolute));
+            ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_red.jpg", UriKind.Absolute));
+            ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_blue.jpg", UriKind.Absolute));
             ib_Player_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_red.png", UriKind.Absolute));
             ib_Player_Blue.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_blue.png", UriKind.Absolute));
             ib_Chest_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/chest_red.png", UriKind.Absolute));
@@ -143,10 +143,10 @@ namespace Soko
                 {
                     rect.Fill = ib_OpenCell;
                 }
-                else if (cell.Type == Cell.cellType.DeadEnd)
-                {
-                    rect.Fill = ib_DeadEndCell;
-                }
+                //else if (cell.Type == Cell.cellType.DeadEnd)
+                //{
+                //    rect.Fill = ib_DeadEndCell;
+                //}
                 else if (cell.Type == Cell.cellType.RedFinish)
                 {
                     rect.Fill = ib_RedFinish;

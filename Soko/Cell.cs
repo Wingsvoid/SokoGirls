@@ -12,7 +12,10 @@ namespace Soko
         {
             Open,
             Close,
-            DeadEnd,
+            LeftWall,
+            RightWall,
+            TopWall,
+            BottomWall,
             RedFinish,
             BlueFinish
         }

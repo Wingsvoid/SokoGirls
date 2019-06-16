@@ -71,7 +71,7 @@ namespace Soko
                 }
             }
             int p = mapArr.Length;
-            for (int i = 0; i< (mapArr.Length/2); i++)
+            for (int i = 0; i < (mapArr.Length/2); i++)
             {
                 int x = mapArr[i, 0];
                 int y = mapArr[i, 1];
