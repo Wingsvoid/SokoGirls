@@ -164,9 +164,9 @@ namespace Soko
             rect_Chest_Red.Width = cellSize;
             rect_Chest_Blue.Height = cellSize;
             rect_Chest_Blue.Width = cellSize;
-            rect_Player_Red.Height = cellSize;
+            rect_Player_Red.Height = (int)(cellSize*1.5);
             rect_Player_Red.Width = cellSize;
-            rect_Player_Blue.Height = cellSize;
+            rect_Player_Blue.Height = (int)(cellSize*1.5);
             rect_Player_Blue.Width = cellSize;
 
             rect_rock1.Width = cellSize;
@@ -196,7 +196,7 @@ namespace Soko
             //Настройки кисти для анимации Красного Игрока
             currentRow_P1 = 0;
             currentFrame_P1 = 0;
-            ib_Player_Red.AlignmentX = AlignmentX.Left;
+            ib_Player_Red.AlignmentX = AlignmentX.Center;
             ib_Player_Red.AlignmentY = AlignmentY.Top;
             ib_Player_Red.Stretch = Stretch.UniformToFill;
             ib_Player_Red.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
@@ -206,7 +206,7 @@ namespace Soko
             //Настройки кисти для анимации Синего игрока
             currentRow_P2 = 0;
             currentFrame_P2 = 0;
-            ib_Player_Blue.AlignmentX = AlignmentX.Left;
+            ib_Player_Blue.AlignmentX = AlignmentX.Center;
             ib_Player_Blue.AlignmentY = AlignmentY.Top;
             ib_Player_Blue.Stretch = Stretch.UniformToFill;
             ib_Player_Blue.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
@@ -649,8 +649,8 @@ namespace Soko
             }
 
             //Рендер ректангла на основе координат
-            rect_Player_Red.RenderTransform = new TranslateTransform(xPos_Player_Red, yPos_Player_Red);
-            rect_Player_Blue.RenderTransform = new TranslateTransform(xPos_Player_Blue, yPos_Player_Blue);
+            rect_Player_Red.RenderTransform = new TranslateTransform(xPos_Player_Red, yPos_Player_Red - (int)(cellSize/2));
+            rect_Player_Blue.RenderTransform = new TranslateTransform(xPos_Player_Blue, yPos_Player_Blue - (int)(cellSize / 2));
             rect_Chest_Red.RenderTransform = new TranslateTransform(xPos_Chest_Red, yPos_Chest_Red);
             rect_Chest_Blue.RenderTransform = new TranslateTransform(xPos_Chest_Blue, yPos_Chest_Blue);
 
