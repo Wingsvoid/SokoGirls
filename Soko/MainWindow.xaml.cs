@@ -26,7 +26,6 @@ namespace Soko
         UniformGrid FieldGrid;
         ImageBrush ib_CloseCell;
         ImageBrush ib_OpenCell;
-       // ImageBrush ib_DeadEndCell;
         ImageBrush ib_RedFinish;
         ImageBrush ib_BlueFinish;
         ImageBrush ib_Player_Red;
@@ -81,12 +80,12 @@ namespace Soko
             FieldGrid = new UniformGrid(); //сетка тайлов игровой карты
             currentMap = newMap; //объект игровой логики
             cellSize = CalculateCellSize(); //размер клеток, тайлов, персонажей
+
             bgBrush.Viewport = new Rect(0, 0, cellSize, cellSize);
 
             //Создание кистей
             ib_CloseCell = new ImageBrush();
             ib_OpenCell = new ImageBrush();
-          //  ib_DeadEndCell = new ImageBrush();
             ib_RedFinish = new ImageBrush();
             ib_BlueFinish = new ImageBrush();
             ib_Player_Red = new ImageBrush();
@@ -116,7 +115,6 @@ namespace Soko
             //Указание источников изображения для кистей
             ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.png", UriKind.Absolute));
             ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.png", UriKind.Absolute));
-            //ib_DeadEndCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/wall.jpg", UriKind.Absolute));
             ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_red.jpg", UriKind.Absolute));
             ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_blue.jpg", UriKind.Absolute));
             ib_Player_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_red.png", UriKind.Absolute));
@@ -199,18 +197,17 @@ namespace Soko
                 {
                     rect.Fill = ib_OpenCell;
                 }
-                //else if (cell.Type == Cell.cellType.DeadEnd)
-                //{
-                //    rect.Fill = ib_DeadEndCell;
-                //}
+               
                 else if (cell.Type == Cell.cellType.RedFinish)
                 {
                     rect.Fill = ib_RedFinish;
                 }
+
                 else if (cell.Type == Cell.cellType.BlueFinish)
                 {
                     rect.Fill = ib_BlueFinish;
                 }
+
                 else
                 {
                     rect.Fill = ib_CloseCell;
@@ -635,10 +632,21 @@ namespace Soko
                 case Key.Right:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Right);
                     break;
+
                 case Key.R:
-                    //currentMap = new Map(LoadMap());
+
+                    MessageBoxResult result = MessageBox.Show("Перезапустить карту?", "ಠ_ಠ", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+
+                        this.Close();
+                        System.Diagnostics.Process.Start(GetType().Assembly.Location);
+
+                    }
+
                     break;
-                default:
+                    default:
                     //MessageBox.Show();
                     break;
             }
@@ -651,6 +659,6 @@ namespace Soko
             rules.Show();
         }
 
-       
+        
     }
 }
