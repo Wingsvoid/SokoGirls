@@ -72,7 +72,7 @@ namespace Soko
         public MainWindow()
         {
             InitializeComponent();
-            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
+            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой 
             CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
         }
         private void CreateNewGame(Map newMap)
@@ -476,8 +476,8 @@ namespace Soko
                 &&(currentMap.chestBlue.currentState == Creature.State.Idle))
             {
                 MessageBox.Show("Оба сундучка доставлены! Поздравляем! Вы прошли карту!");
-                //this.Close(); //Закрыть игру или вместо этого запустить новую карту
-                CreateNewGame(new Map(LoadMap()));
+                this.Close();
+                //CreateNewGame(new Map(LoadMap()));
             }
             //Если состояние игрока/сундука == "в движении", то изменять координаты ректангла в сторону движения
             if (currentMap.playerRed.currentState==Creature.State.Moving)
