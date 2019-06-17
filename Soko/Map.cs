@@ -207,9 +207,51 @@ namespace Soko
             GetCell(playerBlue.xPos, playerBlue.yPos).setObject(playerBlue);
             GetCell(chestRed.xPos, chestRed.yPos).setObject(chestRed);
             GetCell(chestBlue.xPos, chestBlue.yPos).setObject(chestBlue);
+            BuildWalls();
         }
 
-               
+        public void BuildWalls()
+        {
+            foreach (Cell cell in grid)
+            {
+                if (cell.Type == Cell.cellType.Close)
+                {
+                    if (GetNearCell(cell, Creature.Direction.Down).Type == Cell.cellType.Open)
+                    {
+                        cell.Type = Cell.cellType.TopWall;
+                    }
+                    else if ((GetNearCell(cell, Creature.Direction.Up).Type == Cell.cellType.Open) &&
+                        (GetNearCell(cell, Creature.Direction.Right).Type == Cell.cellType.Open))
+                    {
+                        cell.Type = Cell.cellType.LeftCorner;
+                    }
+                    else if ((GetNearCell(cell, Creature.Direction.Up).Type == Cell.cellType.Open) &&
+                        (GetNearCell(cell, Creature.Direction.Left).Type == Cell.cellType.Open))
+                    {
+                        cell.Type = Cell.cellType.RightCorner;
+                    }
+                    else if(GetNearCell(cell, Creature.Direction.Up).Type == Cell.cellType.Open)
+                    {
+                        cell.Type = Cell.cellType.BottomWall;
+                    }
+                    else if ((GetNearCell(cell, Creature.Direction.Right).Type == Cell.cellType.Open)||
+                        (GetNearCell(cell, Creature.Direction.Right).Type == Cell.cellType.TopWall))
+                    {
+                        cell.Type = Cell.cellType.LeftWall;
+                    }
+                    else if ((GetNearCell(cell, Creature.Direction.Left).Type == Cell.cellType.Open)||
+                        (GetNearCell(cell, Creature.Direction.Left).Type == Cell.cellType.TopWall))
+                    {
+                        cell.Type = Cell.cellType.RightWall;
+                    }
+                    else if (((GetNearCell(cell, Creature.Direction.Right).Type == Cell.cellType.Open) || (GetNearCell(cell, Creature.Direction.Right).Type == Cell.cellType.TopWall)) &&
+                        ((GetNearCell(cell, Creature.Direction.Left).Type == Cell.cellType.Open) || (GetNearCell(cell, Creature.Direction.Left).Type == Cell.cellType.TopWall)))
+                    {
+                        cell.Type = Cell.cellType.LeftRightWall;
+                    }
+                }
+            }
+        }
 
         public Cell GetCell(int x, int y) // ищет клетку по её координатам и возвращает её
         {
@@ -219,19 +261,27 @@ namespace Soko
         public Cell GetNearCell(Cell currentCell, Creature.Direction direction) 
             //возвращает клетку, которая находится в выбранном направлении от текущей клетки
         {
+            Cell near;
             switch(direction)
             {
                 case Creature.Direction.Right:
-                    return grid.Find(z => z.xPos == currentCell.xPos+1 && z.yPos == currentCell.yPos);
+                    near =  grid.Find(z => z.xPos == currentCell.xPos+1 && z.yPos == currentCell.yPos);
+                    break;
                 case Creature.Direction.Left:
-                    return grid.Find(z => z.xPos == currentCell.xPos-1 && z.yPos == currentCell.yPos);
+                    near =  grid.Find(z => z.xPos == currentCell.xPos-1 && z.yPos == currentCell.yPos);
+                    break;
                 case Creature.Direction.Up:
-                    return grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos-1);
+                    near =  grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos-1);
+                    break;
                 case Creature.Direction.Down:
-                    return grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos+1);
+                    near =  grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos+1);
+                    break;
                 default:
-                    return grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos);
+                    near =  grid.Find(z => z.xPos == currentCell.xPos && z.yPos == currentCell.yPos);
+                    break;
             }
+            if (near is null) return currentCell;
+            else return near;
         }
         public void MoveTo(Creature player, Creature.Direction direction)
             //перемещает игрока в выбранном направлении

@@ -105,9 +105,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="tiles\wall.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="sprites\char_blue.png" />
     <Resource Include="sprites\char_red.png" />
     <Resource Include="sprites\chest_blue.png" />
@@ -138,6 +135,29 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="maps\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles\floor_stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\TopWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\floor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\LeftWall.png" />
+    <Resource Include="tiles2\RightWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\BottomWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\LeftCorner.png" />
+    <Resource Include="tiles2\RightCorner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles2\LeftRightWall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

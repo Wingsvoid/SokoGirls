@@ -27,6 +27,13 @@ namespace Soko
         UniformGrid FieldGrid;
         ImageBrush ib_CloseCell;
         ImageBrush ib_OpenCell;
+        ImageBrush ib_BottomWall;
+        ImageBrush ib_TopWall;
+        ImageBrush ib_RightWall;
+        ImageBrush ib_LeftWall;
+        ImageBrush ib_LeftCorner;
+        ImageBrush ib_RightCorner;
+        ImageBrush ib_LeftRightWall;
         ImageBrush ib_RedFinish;
         ImageBrush ib_BlueFinish;
         ImageBrush ib_Player_Red;
@@ -76,7 +83,7 @@ namespace Soko
             //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой 
             //CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
 
-            //создать новую игру с загруженной картой из xml-файла
+            // создать новую игру с загруженной картой из xml-файла
             XmlDocument xDoc = new XmlDocument();
             string xPath = Environment.CurrentDirectory + @"\maps\data.xml";
             xDoc.Load(xPath);
@@ -94,6 +101,13 @@ namespace Soko
             //Создание кистей
             ib_CloseCell = new ImageBrush();
             ib_OpenCell = new ImageBrush();
+            ib_TopWall = new ImageBrush();
+            ib_BottomWall = new ImageBrush();
+            ib_LeftWall = new ImageBrush();
+            ib_RightWall = new ImageBrush();
+            ib_LeftRightWall = new ImageBrush();
+            ib_LeftCorner = new ImageBrush();
+            ib_RightCorner = new ImageBrush();
             ib_RedFinish = new ImageBrush();
             ib_BlueFinish = new ImageBrush();
             ib_Player_Red = new ImageBrush();
@@ -121,8 +135,15 @@ namespace Soko
             rect_tree4 = new Rectangle();
 
             //Указание источников изображения для кистей
-            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.png", UriKind.Absolute));
-            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.png", UriKind.Absolute));
+            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop2.png", UriKind.Absolute));
+            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/floor.png", UriKind.Absolute));
+            ib_TopWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/TopWall.png", UriKind.Absolute));
+            ib_BottomWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/BottomWall.png", UriKind.Absolute));
+            ib_LeftWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftWall.png", UriKind.Absolute));
+            ib_RightWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/RightWall.png", UriKind.Absolute));
+            ib_LeftRightWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftRightWall.png", UriKind.Absolute));
+            ib_LeftCorner.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftCorner.png", UriKind.Absolute));
+            ib_RightCorner.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/RightCorner.png", UriKind.Absolute));
             ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_red.jpg", UriKind.Absolute));
             ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_blue.jpg", UriKind.Absolute));
             ib_Player_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_red.png", UriKind.Absolute));
@@ -215,7 +236,34 @@ namespace Soko
                 {
                     rect.Fill = ib_BlueFinish;
                 }
-
+                else if (cell.Type == Cell.cellType.TopWall)
+                {
+                    rect.Fill = ib_TopWall;
+                }
+                else if (cell.Type == Cell.cellType.BottomWall)
+                {
+                    rect.Fill = ib_BottomWall;
+                }
+                else if (cell.Type == Cell.cellType.RightWall)
+                {
+                    rect.Fill = ib_RightWall;
+                }
+                else if (cell.Type == Cell.cellType.LeftWall)
+                {
+                    rect.Fill = ib_LeftWall;
+                }
+                else if (cell.Type == Cell.cellType.LeftCorner)
+                {
+                    rect.Fill = ib_LeftCorner;
+                }
+                else if (cell.Type == Cell.cellType.RightCorner)
+                {
+                    rect.Fill = ib_RightCorner;
+                }
+                else if (cell.Type == Cell.cellType.LeftRightWall)
+                {
+                    rect.Fill = ib_LeftRightWall;
+                }
                 else
                 {
                     rect.Fill = ib_CloseCell;
