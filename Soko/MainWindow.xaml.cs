@@ -26,7 +26,7 @@ namespace Soko
         UniformGrid FieldGrid;
         ImageBrush ib_CloseCell;
         ImageBrush ib_OpenCell;
-        ImageBrush ib_DeadEndCell;
+       // ImageBrush ib_DeadEndCell;
         ImageBrush ib_RedFinish;
         ImageBrush ib_BlueFinish;
         ImageBrush ib_Player_Red;
@@ -34,10 +34,24 @@ namespace Soko
         ImageBrush ib_Chest_Red;
         ImageBrush ib_Chest_Blue;
 
+        ImageBrush ib_rock1;
+        ImageBrush ib_rock2;
+        ImageBrush ib_rock3;
+        ImageBrush ib_tree1;
+        ImageBrush ib_tree2;
+        ImageBrush ib_tree4;
+
         Rectangle rect_Player_Red;
         Rectangle rect_Player_Blue;
         Rectangle rect_Chest_Red;
         Rectangle rect_Chest_Blue;
+
+        Rectangle rect_rock1;
+        Rectangle rect_rock2;
+        Rectangle rect_rock3;
+        Rectangle rect_tree1;
+        Rectangle rect_tree2;
+        Rectangle rect_tree4;
 
         int currentFrame_P1;
         int currentRow_P1;
@@ -72,7 +86,7 @@ namespace Soko
             //Создание кистей
             ib_CloseCell = new ImageBrush();
             ib_OpenCell = new ImageBrush();
-            ib_DeadEndCell = new ImageBrush();
+          //  ib_DeadEndCell = new ImageBrush();
             ib_RedFinish = new ImageBrush();
             ib_BlueFinish = new ImageBrush();
             ib_Player_Red = new ImageBrush();
@@ -80,11 +94,24 @@ namespace Soko
             ib_Chest_Red = new ImageBrush();
             ib_Chest_Blue = new ImageBrush();
 
+            ib_rock1 = new ImageBrush();
+            ib_rock2 = new ImageBrush();
+            ib_rock3 = new ImageBrush();
+            ib_tree1 = new ImageBrush();
+            ib_tree2 = new ImageBrush();
+            ib_tree4 = new ImageBrush();
+
             //Создание ректанглов для отрисовки
             rect_Player_Red = new Rectangle();
             rect_Player_Blue = new Rectangle();
             rect_Chest_Red = new Rectangle();
             rect_Chest_Blue = new Rectangle();
+            rect_rock1 = new Rectangle();
+            rect_rock2 = new Rectangle();
+            rect_rock3 = new Rectangle();
+            rect_tree1 = new Rectangle();
+            rect_tree2 = new Rectangle();
+            rect_tree4 = new Rectangle();
 
             //Указание источников изображения для кистей
             ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.png", UriKind.Absolute));
@@ -97,6 +124,14 @@ namespace Soko
             ib_Chest_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/chest_red.png", UriKind.Absolute));
             ib_Chest_Blue.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/chest_blue.png", UriKind.Absolute));
 
+            ib_rock1.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/rock1.png", UriKind.Absolute));
+            ib_rock2.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/rock2.png", UriKind.Absolute));
+            ib_rock3.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/rock2.png", UriKind.Absolute));
+            ib_tree1.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/tree1.png", UriKind.Absolute));
+            ib_tree2.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/tree1.png", UriKind.Absolute));
+            ib_tree4.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/nature/tree1.png", UriKind.Absolute));
+
+
             //Размеры ректанглов равны размеру клеток
             rect_Chest_Red.Height = cellSize;
             rect_Chest_Red.Width = cellSize;
@@ -107,9 +142,29 @@ namespace Soko
             rect_Player_Blue.Height = cellSize;
             rect_Player_Blue.Width = cellSize;
 
-            //Заполнение ректанглов изображением сундуков
+            rect_rock1.Width = cellSize;
+            rect_rock1.Height = 45;
+            rect_rock2.Width = cellSize;
+            rect_rock2.Height = cellSize;
+            rect_rock3.Width = cellSize;
+            rect_rock3.Height = cellSize;
+            rect_tree1.Width = 50;
+            rect_tree1.Height = 50;
+            rect_tree2.Width = 50;
+            rect_tree2.Height = 60;
+            rect_tree4.Width = 68;
+            rect_tree4.Height = 63;
+
+
+            //Заполнение ректанглов изображением 
             rect_Chest_Red.Fill = ib_Chest_Red;
             rect_Chest_Blue.Fill = ib_Chest_Blue;
+            rect_rock1.Fill = ib_rock1;
+            rect_rock2.Fill = ib_rock2;
+            rect_rock3.Fill = ib_rock3;
+            rect_tree1.Fill = ib_tree1;
+            rect_tree2.Fill = ib_tree2;
+            rect_tree4.Fill = ib_tree4;
 
             //Настройки кисти для анимации Красного Игрока
             currentRow_P1 = 0;
@@ -136,6 +191,7 @@ namespace Soko
             FieldGrid.Rows = currentMap.Height;
             FieldGrid.Width = cellSize * FieldGrid.Columns;
             FieldGrid.Height = cellSize * FieldGrid.Rows;
+
             foreach (Cell cell in currentMap.grid)
             {
                 Rectangle rect = new Rectangle();
@@ -161,12 +217,30 @@ namespace Soko
                 }
                 FieldGrid.Children.Add(rect);
             }
+
+           
+
+            //Позиции ректанглов окружения в сцене
+            rect_rock1.Margin = new Thickness(27, 150, 0, 0);
+            rect_rock2.Margin = new Thickness(750, 75, 0, 0);
+            rect_rock3.Margin = new Thickness(600, 700, 0, 0);
+            rect_tree1.Margin = new Thickness(100, 264, 0, 0);
+            rect_tree2.Margin = new Thickness(250, 55, 0, 0);
+            rect_tree4.Margin = new Thickness(700, 500, 0, 0);
+
             //Добавление объектов в сцену
             scene.Children.Add(FieldGrid);
             scene.Children.Add(rect_Chest_Red);
             scene.Children.Add(rect_Chest_Blue);
             scene.Children.Add(rect_Player_Red);
             scene.Children.Add(rect_Player_Blue);
+
+            scene.Children.Add(rect_rock1);
+            scene.Children.Add(rect_rock2);
+            scene.Children.Add(rect_rock3);
+            scene.Children.Add(rect_tree1);
+            scene.Children.Add(rect_tree2);
+            scene.Children.Add(rect_tree4);
 
             //Копирование текущих координат игровых объектов
             xPos_Player_Red = currentMap.playerRed.xPos * cellSize;

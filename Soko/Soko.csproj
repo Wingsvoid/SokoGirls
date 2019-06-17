@@ -127,7 +127,11 @@
   <ItemGroup>
     <Resource Include="Button.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="nature\rock1.png" />
+    <Resource Include="nature\rock2.png" />
+    <Resource Include="nature\tree1.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="other\labyrinth.ico" />
     <Resource Include="other\rule.ico" />
