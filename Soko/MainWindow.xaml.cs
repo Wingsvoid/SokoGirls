@@ -179,7 +179,7 @@ namespace Soko
             ib_Player_Red.AlignmentY = AlignmentY.Top;
             ib_Player_Red.Stretch = Stretch.UniformToFill;
             ib_Player_Red.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
-            ib_Player_Red.Viewbox = new Rect(1.0/9 * currentFrame_P1, 1.0/4 * currentRow_P1, 1.0/9, 1.0/4);
+            ib_Player_Red.Viewbox = new Rect(1.0/9 * currentFrame_P1+0.015, 1.0/4 * currentRow_P1+0.05, 1.0/9-0.03, 1.0/4-0.05);
             rect_Player_Red.Fill = ib_Player_Red;
 
             //Настройки кисти для анимации Синего игрока
@@ -189,7 +189,7 @@ namespace Soko
             ib_Player_Blue.AlignmentY = AlignmentY.Top;
             ib_Player_Blue.Stretch = Stretch.UniformToFill;
             ib_Player_Blue.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
-            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2, 1.0/4*currentRow_P2, 1.0/9, 1.0/4);
+            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2 + 0.015, 1.0 / 4 * currentRow_P2 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
             rect_Player_Blue.Fill = ib_Player_Blue;
 
             //Создание сетки и заполнение тайлами
@@ -272,6 +272,7 @@ namespace Soko
             dispatcherTimer.Start();
 
         }
+
         private int[,] LoadMap()
         {
             //c - close cell
@@ -606,8 +607,8 @@ namespace Soko
             rect_Chest_Blue.RenderTransform = new TranslateTransform(xPos_Chest_Blue, yPos_Chest_Blue);
 
             //Изменение кадра анимации на основе номера строки и номера столбца
-            ib_Player_Red.Viewbox = new Rect(1.0 / 9 * currentFrame_P1, 1.0 / 4 * currentRow_P1, 1.0 / 9, 1.0 / 4);
-            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2, 1.0 / 4 * currentRow_P2, 1.0 / 9, 1.0 / 4);
+            ib_Player_Red.Viewbox = new Rect(1.0 / 9 * currentFrame_P1 + 0.015, 1.0 / 4 * currentRow_P1 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
+            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2 + 0.015, 1.0 / 4 * currentRow_P2 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
             rect_Player_Red.Fill = ib_Player_Red;
             rect_Player_Blue.Fill = ib_Player_Blue;
         }
