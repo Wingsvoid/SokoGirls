@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Soko
 {
@@ -73,8 +74,15 @@ namespace Soko
         {
             InitializeComponent();
             //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой 
-            CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
+            //CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
+
+            //создать новую игру с загруженной картой из xml-файла
+            XmlDocument xDoc = new XmlDocument();
+            string xPath = Environment.CurrentDirectory + @"\maps\data.xml";
+            xDoc.Load(xPath);
+            CreateNewGame(new Map(xDoc));
         }
+
         private void CreateNewGame(Map newMap)
         {
             FieldGrid = new UniformGrid(); //сетка тайлов игровой карты
