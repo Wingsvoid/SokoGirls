@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Soko"
         mc:Ignorable="d"
-        Title="Rules" Height="330" Width="376">
+        Title="Rules" Height="330" Width="376" WindowStartupLocation="CenterScreen" Icon="other/rule.ico">
 
     <Label Content="   &#xD;&#xA;    Управление осуществляется&#xA;    клавишами WASD и &#xA;    стрелочками.&#xA;&#xA;    Цель - доставить сундучки &#xA;    на финишные клетки.&#xA; &#xA;                        Удачи!  " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="302" Width="376" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" Margin="-10,0,0,-3">
         <Label.Background>

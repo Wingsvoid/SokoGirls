@@ -21,7 +21,6 @@ D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\MainWindow.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\App.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko_MarkupCompile.cache
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko_MarkupCompile.lref
-D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\MainWindow.baml
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.g.resources
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.Properties.Resources.resources
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.csproj.GenerateResource.cache
@@ -29,4 +28,5 @@ D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.csproj.CoreCom
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.exe
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Soko.pdb
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Rules.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\MainWindow.baml
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls\Soko\obj\Debug\Rules.baml

@@ -127,5 +127,10 @@
   <ItemGroup>
     <Resource Include="Button.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="other\labyrinth.ico" />
+    <Resource Include="other\rule.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

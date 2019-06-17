@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Soko"
         mc:Ignorable="d"
-        Title="SokoGirls" Height="768" Width="1024" WindowState="Maximized" KeyDown="GameScreen_KeyDown">
+        Title="SokoGirls" Height="768" Width="1024" WindowState="Maximized" KeyDown="GameScreen_KeyDown" Icon="other/labyrinth.ico">
     <Canvas x:Name="scene" Margin="0,0,0,0" MinWidth="100" MinHeight="100">
         <Canvas.Background>
             <ImageBrush x:Name="bgBrush" ImageSource="tiles/floor_stop.png" TileMode="Tile" ViewportUnits ="Absolute" Viewport="0, 0, 128, 128"/>
