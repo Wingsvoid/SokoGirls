@@ -97,7 +97,7 @@ namespace Soko
             //CreateNewGame(new Map(xDoc));
             
             player.Open(new Uri(@"background.wav", UriKind.Relative));
-            player.Play();
+            //player.Play();
 
         }
       
@@ -108,7 +108,13 @@ namespace Soko
             //sp.Load(Properties.Resources.move_player);
             sp.Play();
         }
-      
+        private void sound_move_chest()
+        {
+            SoundPlayer sp = new SoundPlayer();
+            sp.Stream = Properties.Resources.move_chest;
+            //sp.Load(Properties.Resources.move_player);
+            sp.Play();
+        }
 
 
 
@@ -598,6 +604,7 @@ namespace Soko
                 
                 switch (currentMap.playerBlue.lastDirection)
                 {
+                   
                     case Creature.Direction.Up:
                         currentRow_P2 = 0;
                         yPos_Player_Blue -= gameSpeed % (yPos_Player_Blue - currentMap.playerBlue.yPos * cellSize + 1);
@@ -700,6 +707,7 @@ namespace Soko
         {
             switch (e.Key)
             {
+
                 case Key.W:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Up);
                     sound_move_player();
@@ -750,7 +758,16 @@ namespace Soko
                     //MessageBox.Show();
                     break;
             }
-
+            if ((currentMap.playerRed.currentState == Creature.State.Idle) ||
+               (currentMap.playerBlue.currentState == Creature.State.Idle))
+                {
+                sound_move_player();
+            }
+            if ((currentMap.chestRed.currentState == Creature.State.Idle) ||
+               (currentMap.chestBlue.currentState == Creature.State.Idle))
+            {
+                sound_move_chest();
+            }
         }
 
         private void rule_Click(object sender, RoutedEventArgs e)

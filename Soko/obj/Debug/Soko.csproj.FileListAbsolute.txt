@@ -38,8 +38,6 @@ C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Rules.g.cs
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\App.g.cs
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko_MarkupCompile.cache
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko_MarkupCompile.lref
-C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\MainWindow.baml
-C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Rules.baml
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.g.resources
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.pdb
 C:\Users\User\Desktop\SokoGame\Soko\bin\Debug\Soko.exe.config

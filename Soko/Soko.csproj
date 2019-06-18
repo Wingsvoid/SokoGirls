@@ -177,5 +177,8 @@
   <ItemGroup>
     <None Include="Resources\move_chest.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move_player.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
