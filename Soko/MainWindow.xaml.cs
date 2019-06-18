@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,9 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Threading;
-using System.Media;
-using System.IO;
+using System.Xml;
 
 namespace Soko
 {
@@ -29,6 +29,13 @@ namespace Soko
         UniformGrid FieldGrid;
         ImageBrush ib_CloseCell;
         ImageBrush ib_OpenCell;
+        ImageBrush ib_BottomWall;
+        ImageBrush ib_TopWall;
+        ImageBrush ib_RightWall;
+        ImageBrush ib_LeftWall;
+        ImageBrush ib_LeftCorner;
+        ImageBrush ib_RightCorner;
+        ImageBrush ib_LeftRightWall;
         ImageBrush ib_RedFinish;
         ImageBrush ib_BlueFinish;
         ImageBrush ib_Player_Red;
@@ -73,42 +80,34 @@ namespace Soko
         int gameSpeed;
         int fps;
 
-        [System.Runtime.InteropServices.DllImport("winmm.dll")]
-        private static extern
-            Boolean PlaySound(string lpszName, int hModule, int dwFlags);
+        MediaPlayer player = new MediaPlayer();
+    
 
-        public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
 
         public MainWindow()
         {
             InitializeComponent();
-            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой
+            //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой 
             CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
 
-
-          
-            Stream str = Properties.Resources.background;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            // создать новую игру с загруженной картой из xml-файла
+            //XmlDocument xDoc = new XmlDocument();
+            //string xPath = Environment.CurrentDirectory + @"\maps\data.xml";
+            //xDoc.Load(xPath);
+            //CreateNewGame(new Map(xDoc));
             
-
-
-        }
-
-        private void soundmoveplayer()
-        {
-           
-            MediaPlayer player = new MediaPlayer();
-            player.Open(new Uri(@"pack://application:,,,/sound/move_player.wav", UriKind.Absolute));
-            //player.Play();
+            player.Open(new Uri(@"pack://application:,,,/sound/background.wav", UriKind.Absolute));
+            player.Play();
 
         }
-        
       
-
-        
-
-
+        private void sound_move_player()
+        {
+            SoundPlayer sp = new SoundPlayer();
+            sp.Stream = Properties.Resources.move_player;
+            //sp.Load(Properties.Resources.move_player);
+            sp.Play();
+        }
 
         private void CreateNewGame(Map newMap)
         {
@@ -121,6 +120,13 @@ namespace Soko
             //Создание кистей
             ib_CloseCell = new ImageBrush();
             ib_OpenCell = new ImageBrush();
+            ib_TopWall = new ImageBrush();
+            ib_BottomWall = new ImageBrush();
+            ib_LeftWall = new ImageBrush();
+            ib_RightWall = new ImageBrush();
+            ib_LeftRightWall = new ImageBrush();
+            ib_LeftCorner = new ImageBrush();
+            ib_RightCorner = new ImageBrush();
             ib_RedFinish = new ImageBrush();
             ib_BlueFinish = new ImageBrush();
             ib_Player_Red = new ImageBrush();
@@ -148,8 +154,15 @@ namespace Soko
             rect_tree4 = new Rectangle();
 
             //Указание источников изображения для кистей
-            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop.png", UriKind.Absolute));
-            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor.png", UriKind.Absolute));
+            ib_CloseCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop2.png", UriKind.Absolute));
+            ib_OpenCell.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/floor.png", UriKind.Absolute));
+            ib_TopWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/TopWall.png", UriKind.Absolute));
+            ib_BottomWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/BottomWall.png", UriKind.Absolute));
+            ib_LeftWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftWall.png", UriKind.Absolute));
+            ib_RightWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/RightWall.png", UriKind.Absolute));
+            ib_LeftRightWall.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftRightWall.png", UriKind.Absolute));
+            ib_LeftCorner.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/LeftCorner.png", UriKind.Absolute));
+            ib_RightCorner.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles2/RightCorner.png", UriKind.Absolute));
             ib_RedFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_red.jpg", UriKind.Absolute));
             ib_BlueFinish.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_blue.jpg", UriKind.Absolute));
             ib_Player_Red.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/sprites/char_red.png", UriKind.Absolute));
@@ -170,9 +183,9 @@ namespace Soko
             rect_Chest_Red.Width = cellSize;
             rect_Chest_Blue.Height = cellSize;
             rect_Chest_Blue.Width = cellSize;
-            rect_Player_Red.Height = cellSize;
+            rect_Player_Red.Height = (int)(cellSize*1.5);
             rect_Player_Red.Width = cellSize;
-            rect_Player_Blue.Height = cellSize;
+            rect_Player_Blue.Height = (int)(cellSize*1.5);
             rect_Player_Blue.Width = cellSize;
 
             rect_rock1.Width = cellSize;
@@ -202,21 +215,21 @@ namespace Soko
             //Настройки кисти для анимации Красного Игрока
             currentRow_P1 = 0;
             currentFrame_P1 = 0;
-            ib_Player_Red.AlignmentX = AlignmentX.Left;
+            ib_Player_Red.AlignmentX = AlignmentX.Center;
             ib_Player_Red.AlignmentY = AlignmentY.Top;
             ib_Player_Red.Stretch = Stretch.UniformToFill;
             ib_Player_Red.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
-            ib_Player_Red.Viewbox = new Rect(1.0/9 * currentFrame_P1, 1.0/4 * currentRow_P1, 1.0/9, 1.0/4);
+            ib_Player_Red.Viewbox = new Rect(1.0/9 * currentFrame_P1+0.015, 1.0/4 * currentRow_P1+0.05, 1.0/9-0.03, 1.0/4-0.05);
             rect_Player_Red.Fill = ib_Player_Red;
 
             //Настройки кисти для анимации Синего игрока
             currentRow_P2 = 0;
             currentFrame_P2 = 0;
-            ib_Player_Blue.AlignmentX = AlignmentX.Left;
+            ib_Player_Blue.AlignmentX = AlignmentX.Center;
             ib_Player_Blue.AlignmentY = AlignmentY.Top;
             ib_Player_Blue.Stretch = Stretch.UniformToFill;
             ib_Player_Blue.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
-            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2, 1.0/4*currentRow_P2, 1.0/9, 1.0/4);
+            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2 + 0.015, 1.0 / 4 * currentRow_P2 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
             rect_Player_Blue.Fill = ib_Player_Blue;
 
             //Создание сетки и заполнение тайлами
@@ -242,7 +255,34 @@ namespace Soko
                 {
                     rect.Fill = ib_BlueFinish;
                 }
-
+                else if (cell.Type == Cell.cellType.TopWall)
+                {
+                    rect.Fill = ib_TopWall;
+                }
+                else if (cell.Type == Cell.cellType.BottomWall)
+                {
+                    rect.Fill = ib_BottomWall;
+                }
+                else if (cell.Type == Cell.cellType.RightWall)
+                {
+                    rect.Fill = ib_RightWall;
+                }
+                else if (cell.Type == Cell.cellType.LeftWall)
+                {
+                    rect.Fill = ib_LeftWall;
+                }
+                else if (cell.Type == Cell.cellType.LeftCorner)
+                {
+                    rect.Fill = ib_LeftCorner;
+                }
+                else if (cell.Type == Cell.cellType.RightCorner)
+                {
+                    rect.Fill = ib_RightCorner;
+                }
+                else if (cell.Type == Cell.cellType.LeftRightWall)
+                {
+                    rect.Fill = ib_LeftRightWall;
+                }
                 else
                 {
                     rect.Fill = ib_CloseCell;
@@ -299,6 +339,7 @@ namespace Soko
             dispatcherTimer.Start();
 
         }
+
         private int[,] LoadMap()
         {
             //c - close cell
@@ -511,8 +552,8 @@ namespace Soko
                 &&(currentMap.chestBlue.currentState == Creature.State.Idle))
             {
                 MessageBox.Show("Оба сундучка доставлены! Поздравляем! Вы прошли карту!");
-                //this.Close(); //Закрыть игру или вместо этого запустить новую карту
-                CreateNewGame(new Map(LoadMap()));
+                this.Close();
+                //CreateNewGame(new Map(LoadMap()));
             }
             //Если состояние игрока/сундука == "в движении", то изменять координаты ректангла в сторону движения
             if (currentMap.playerRed.currentState==Creature.State.Moving)
@@ -627,14 +668,14 @@ namespace Soko
             }
 
             //Рендер ректангла на основе координат
-            rect_Player_Red.RenderTransform = new TranslateTransform(xPos_Player_Red, yPos_Player_Red);
-            rect_Player_Blue.RenderTransform = new TranslateTransform(xPos_Player_Blue, yPos_Player_Blue);
+            rect_Player_Red.RenderTransform = new TranslateTransform(xPos_Player_Red, yPos_Player_Red - (int)(cellSize/2));
+            rect_Player_Blue.RenderTransform = new TranslateTransform(xPos_Player_Blue, yPos_Player_Blue - (int)(cellSize / 2));
             rect_Chest_Red.RenderTransform = new TranslateTransform(xPos_Chest_Red, yPos_Chest_Red);
             rect_Chest_Blue.RenderTransform = new TranslateTransform(xPos_Chest_Blue, yPos_Chest_Blue);
 
             //Изменение кадра анимации на основе номера строки и номера столбца
-            ib_Player_Red.Viewbox = new Rect(1.0 / 9 * currentFrame_P1, 1.0 / 4 * currentRow_P1, 1.0 / 9, 1.0 / 4);
-            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2, 1.0 / 4 * currentRow_P2, 1.0 / 9, 1.0 / 4);
+            ib_Player_Red.Viewbox = new Rect(1.0 / 9 * currentFrame_P1 + 0.015, 1.0 / 4 * currentRow_P1 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
+            ib_Player_Blue.Viewbox = new Rect(1.0 / 9 * currentFrame_P2 + 0.015, 1.0 / 4 * currentRow_P2 + 0.05, 1.0 / 9 - 0.03, 1.0 / 4 - 0.05);
             rect_Player_Red.Fill = ib_Player_Red;
             rect_Player_Blue.Fill = ib_Player_Blue;
         }
@@ -645,35 +686,35 @@ namespace Soko
             {
                 case Key.W:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Up);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.Up:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Up);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.A:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Left);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.Left:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Left);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.S:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Down);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.Down:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Down);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.D:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Right);
-                    soundmoveplayer();
+                    sound_move_player();
                     break;
                 case Key.Right:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Right);
-                    soundmoveplayer();
+                        sound_move_player();
                     break;
 
                 case Key.R:
@@ -702,6 +743,13 @@ namespace Soko
             rules.Show();
         }
 
-        
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.ShowDialog();
+            player.Open(new Uri(dlg.FileName, UriKind.Relative));
+            player.Play();
+        }
     }
 }
