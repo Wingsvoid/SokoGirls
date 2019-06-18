@@ -108,6 +108,10 @@ namespace Soko
             //sp.Load(Properties.Resources.move_player);
             sp.Play();
         }
+      
+
+
+
 
         private void CreateNewGame(Map newMap)
         {
@@ -335,7 +339,7 @@ namespace Soko
             //Создание таймера, который запускает эвент с определенным интервалом
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / fps);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 /fps);
             dispatcherTimer.Start();
 
         }
@@ -547,6 +551,7 @@ namespace Soko
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            
             if (currentMap.isWinnable()
                 &&(currentMap.chestRed.currentState == Creature.State.Idle)
                 &&(currentMap.chestBlue.currentState == Creature.State.Idle))
@@ -558,21 +563,27 @@ namespace Soko
             //Если состояние игрока/сундука == "в движении", то изменять координаты ректангла в сторону движения
             if (currentMap.playerRed.currentState==Creature.State.Moving)
             {
+                
                 switch (currentMap.playerRed.lastDirection)
                 {
+
                     case Creature.Direction.Up:
                         currentRow_P1 = 0;
                         yPos_Player_Red -=  gameSpeed % (Math.Abs(yPos_Player_Red - currentMap.playerRed.yPos * cellSize) +1);
                         break;
+                        
                     case Creature.Direction.Left:
+                        
                         currentRow_P1 = 1;
                         xPos_Player_Red -= gameSpeed % (Math.Abs(xPos_Player_Red - currentMap.playerRed.xPos * cellSize) + 1);
                         break;
                     case Creature.Direction.Down:
+                        
                         currentRow_P1 = 2;
                         yPos_Player_Red += gameSpeed % (Math.Abs(yPos_Player_Red - currentMap.playerRed.yPos * cellSize) + 1);
                         break;
                     case Creature.Direction.Right:
+                        
                         currentRow_P1 = 3;
                         xPos_Player_Red += gameSpeed % (Math.Abs(xPos_Player_Red - currentMap.playerRed.xPos * cellSize) + 1);
                         break;
@@ -580,9 +591,11 @@ namespace Soko
                         break;
                 }
                 currentFrame_P1 = (currentFrame_P1 + 1 + frameCount) % frameCount;
+                
             }
             if (currentMap.playerBlue.currentState == Creature.State.Moving)
             {
+                
                 switch (currentMap.playerBlue.lastDirection)
                 {
                     case Creature.Direction.Up:
@@ -608,6 +621,8 @@ namespace Soko
             }
             if (currentMap.chestRed.currentState == Creature.State.Moving)
             {
+
+              
                 switch (currentMap.chestRed.lastDirection)
                 {
                     case Creature.Direction.Up:
@@ -628,6 +643,7 @@ namespace Soko
             }
             if (currentMap.chestBlue.currentState == Creature.State.Moving)
             {
+
                 switch (currentMap.chestBlue.lastDirection)
                 {
                     case Creature.Direction.Up:
@@ -714,7 +730,7 @@ namespace Soko
                     break;
                 case Key.Right:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Right);
-                        sound_move_player();
+                    sound_move_player();
                     break;
 
                 case Key.R:

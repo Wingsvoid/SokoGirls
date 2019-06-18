@@ -63,9 +63,9 @@ namespace Soko.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream background {
+        internal static System.IO.UnmanagedMemoryStream move_chest {
             get {
-                return ResourceManager.GetStream("background", resourceCulture);
+                return ResourceManager.GetStream("move_chest", resourceCulture);
             }
         }
         
