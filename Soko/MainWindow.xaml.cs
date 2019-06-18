@@ -97,7 +97,7 @@ namespace Soko
             //CreateNewGame(new Map(xDoc));
             
             player.Open(new Uri(@"background.wav", UriKind.Relative));
-            //player.Play();
+           // player.Play();
 
         }
       
@@ -710,35 +710,35 @@ namespace Soko
 
                 case Key.W:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Up);
-                    sound_move_player();
+                  
                     break;
                 case Key.Up:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Up);
-                    sound_move_player();
+          
                     break;
                 case Key.A:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Left);
-                    sound_move_player();
+                  
                     break;
                 case Key.Left:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Left);
-                    sound_move_player();
+                  
                     break;
                 case Key.S:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Down);
-                    sound_move_player();
+                   
                     break;
                 case Key.Down:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Down);
-                    sound_move_player();
+              
                     break;
                 case Key.D:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Right);
-                    sound_move_player();
+                   
                     break;
                 case Key.Right:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Right);
-                    sound_move_player();
+               
                     break;
 
                 case Key.R:
@@ -758,13 +758,13 @@ namespace Soko
                     //MessageBox.Show();
                     break;
             }
-            if ((currentMap.playerRed.currentState == Creature.State.Idle) ||
-               (currentMap.playerBlue.currentState == Creature.State.Idle))
+            if ((currentMap.playerRed.currentState == Creature.State.Moving) ||
+               (currentMap.playerBlue.currentState == Creature.State.Moving))
                 {
                 sound_move_player();
             }
-            if ((currentMap.chestRed.currentState == Creature.State.Idle) ||
-               (currentMap.chestBlue.currentState == Creature.State.Idle))
+            if ((currentMap.chestRed.currentState == Creature.State.Moving) ||
+               (currentMap.chestBlue.currentState == Creature.State.Moving))
             {
                 sound_move_chest();
             }

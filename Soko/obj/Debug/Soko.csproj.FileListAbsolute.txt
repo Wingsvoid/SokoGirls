@@ -47,3 +47,9 @@ C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.Properties.Resources.resource
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.csproj.GenerateResource.cache
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.exe
+C:\Users\User\Desktop\SokoGame\Soko\bin\Debug\nunit.framework.dll
+C:\Users\User\Desktop\SokoGame\Soko\bin\Debug\nunit.framework.pdb
+C:\Users\User\Desktop\SokoGame\Soko\bin\Debug\nunit.framework.xml
+C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Rules.baml
+C:\Users\User\Desktop\SokoGame\Soko\obj\Debug\Soko.csproj.CopyComplete
