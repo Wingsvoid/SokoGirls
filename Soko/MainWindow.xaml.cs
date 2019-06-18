@@ -96,7 +96,7 @@ namespace Soko
             //xDoc.Load(xPath);
             //CreateNewGame(new Map(xDoc));
             
-            player.Open(new Uri(@"pack://application:,,,/sound/background.wav", UriKind.Absolute));
+            player.Open(new Uri(@"background.wav", UriKind.Relative));
             player.Play();
 
         }
