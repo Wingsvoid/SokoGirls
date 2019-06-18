@@ -14,11 +14,8 @@ namespace Soko
             Close,
             LeftWall,
             RightWall,
-            LeftRightWall,
             TopWall,
             BottomWall,
-            LeftCorner,
-            RightCorner,
             RedFinish,
             BlueFinish
         }
