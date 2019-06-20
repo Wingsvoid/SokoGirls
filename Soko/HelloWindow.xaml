@@ -1,0 +1,41 @@
+﻿<Window x:Name="hellowindow" x:Class="Soko.HelloWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Soko"
+        mc:Ignorable="d"
+        Title="SokoGirls" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized" Icon="other/labyrinth.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="other/menu1.png"/>
+    </Window.Background>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="430" Margin="10" Width="780">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="237*"/>
+        </Grid.ColumnDefinitions>
+        <Image Margin="131,-64,140,-76" Source="menu.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Grid.Column="2"/>
+        <Button x:Name="newgame" Content="Начать приключение" Margin="217,12,212,312" Click="newgame_Click" Grid.Column="2" BorderBrush="{x:Null}" FontFamily="VEGeorgianBrushCyrillicGreek" FontSize="22" Style="{DynamicResource GameStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="loadmap" Content="Загрузить подземелье" Grid.Column="2" HorizontalAlignment="Left" Margin="217,150,0,0" VerticalAlignment="Top" Width="282" Height="114" BorderBrush="{x:Null}" FontFamily="VEGeorgianBrushCyrillicGreek" FontSize="22" Style="{DynamicResource GameStyle}" Click="loadmap_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="exit1" Content="Выход" Grid.Column="2" HorizontalAlignment="Left" Margin="217,298,0,0" VerticalAlignment="Top" Width="282" Height="104" BorderBrush="{x:Null}" FontFamily="VEGeorgianBrushCyrillicGreek" FontSize="22" Click="exit1_Click" Style="{DynamicResource GameStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Image Grid.Column="2" Margin="184,352,499,28" Source="redgirl.png" Stretch="Fill"/>
+        <Image Grid.Column="2" Margin="504,352,179,28" Source="bluegirl.png" Stretch="Fill"/>
+
+    </Grid>
+</Window>

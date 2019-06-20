@@ -61,9 +61,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="functions.cs" />
+    <Compile Include="HelloWindow.xaml.cs">
+      <DependentUpon>HelloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapEditor.xaml.cs">
+      <DependentUpon>MapEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rules.xaml.cs">
       <DependentUpon>Rules.xaml</DependentUpon>
     </Compile>
+    <Compile Include="test.cs" />
+    <Page Include="HelloWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MapEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Rules.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,10 +132,6 @@
     <Resource Include="sprites\char_red.png" />
     <Resource Include="sprites\chest_blue.png" />
     <Resource Include="sprites\chest_red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="tiles\floor_blue.jpg" />
-    <Resource Include="tiles\floor_red.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="tiles\floor.png" />
@@ -167,25 +179,38 @@
     <Resource Include="tiles2\LeftRightWall.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="sound\background.wav" />
-    <Resource Include="sound\move_player.wav" />
+    <Resource Include="other\exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <Resource Include="other\menudangeon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="redgirl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bluegirl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tiles\floor_blue.jpg" />
+    <Resource Include="tiles\floor_red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\move_chest.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\move_player.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other\slider.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -22,6 +22,8 @@ namespace Soko
         public Rules()
         {
             InitializeComponent();
+
         }
+
     }
 }

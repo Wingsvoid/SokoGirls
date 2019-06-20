@@ -93,7 +93,7 @@ namespace Soko
             GetCell(23, 3).Type = Cell.cellType.RedFinish;
             GetCell(23, 4).Type = Cell.cellType.BlueFinish;
 
-           // SaveToXml(); 
+           SaveToXml(); 
         }
 
         // создание карты исходя из содержимого Xml-документа
@@ -404,7 +404,7 @@ namespace Soko
 
             xDoc.AppendChild(xRoot);
             xDoc.PreserveWhitespace = true;
-            string xPath = Environment.CurrentDirectory + @"\maps\data.xml";
+            string xPath = "data.xml";
             xDoc.Save(xPath);
         }
 

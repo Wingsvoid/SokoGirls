@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Soko"
         mc:Ignorable="d"
-        Title="SokoGirls" Height="768" Width="1024" WindowState="Maximized" KeyDown="GameScreen_KeyDown" Icon="other/labyrinth.ico">
-    <Canvas x:Name="scene" Margin="2,-4,-2,4" MinWidth="100" MinHeight="100">
+        Title="SokoGirls" Height="768" Width="1024" WindowState="Maximized" KeyDown="GameScreen_KeyDown" Icon="other/labyrinth.ico" ResizeMode="NoResize" WindowStyle="None">
+    <Canvas x:Name="scene" Margin="0,0,-346,0" MinWidth="100" MinHeight="100">
         <Canvas.Background>
             <ImageBrush x:Name="bgBrush" ImageSource="tiles/floor_stop2.png" TileMode="Tile" ViewportUnits ="Absolute" Viewport="0, 0, 128, 128"/>
         </Canvas.Background>
-        <Button x:Name="rule" Content="Rules" Canvas.Left="859" Canvas.Top="665" Width="147" Height="62" Click="rule_Click" FontSize="24" Foreground="#FFBA3300" BorderBrush="#FF1F1F1F">
+        <Button x:Name="rule" Content="Rules" Canvas.Left="1226" Canvas.Top="701" Width="134" Height="57" Click="rule_Click" FontSize="24" Foreground="#FFBA3300" BorderBrush="{x:Null}" Style="{DynamicResource GameStyle}">
             <Button.Background>
                 <ImageBrush ImageSource="Button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="open" Content="Открыть&#xD;&#xA;" Canvas.Left="871" Canvas.Top="621" Width="135" Height="39" Click="Open_Click"/>
+        <Button x:Name="exit" Content="" Height="32" Canvas.Left="1324" Width="46" BorderBrush="{x:Null}" Click="exit_Click" Style="{DynamicResource GameStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="other/exit.png"/>
+            </Button.Background>
+        </Button>
     </Canvas>
 
 </Window>

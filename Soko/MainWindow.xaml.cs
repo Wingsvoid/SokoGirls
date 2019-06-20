@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -16,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using Microsoft.Win32;
 
 namespace Soko
 {
@@ -80,44 +80,45 @@ namespace Soko
         int gameSpeed;
         int fps;
 
-        MediaPlayer player = new MediaPlayer();
-    
+        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
 
+        MediaPlayer player = new MediaPlayer();
+        MediaPlayer player1 = new MediaPlayer();
+        
 
         public MainWindow()
         {
             InitializeComponent();
+
+
+
             //CreateNewGame(new Map(8, 8)); //создать новую игру с тестовой картой 
-            CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
+             //CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
 
-            // создать новую игру с загруженной картой из xml-файла
-            //XmlDocument xDoc = new XmlDocument();
-            //string xPath = Environment.CurrentDirectory + @"\maps\data.xml";
-            //xDoc.Load(xPath);
-            //CreateNewGame(new Map(xDoc));
-            
+            //создать новую игру с загруженной картой из xml-файла
+            XmlDocument xDoc = new XmlDocument();
+            string xPath = "data.xml";
+            xDoc.Load(xPath);
+            CreateNewGame(new Map(xDoc));
+
+
             player.Open(new Uri(@"background.wav", UriKind.Relative));
-           // player.Play();
-
+            player.Play();
+            player.Volume = 40.0 / 100.0;
+            
         }
-      
+
         private void sound_move_player()
         {
-            SoundPlayer sp = new SoundPlayer();
-            sp.Stream = Properties.Resources.move_player;
-            //sp.Load(Properties.Resources.move_player);
-            sp.Play();
+            player1.Open(new Uri(@"move_player.wav", UriKind.Relative));
+            player1.Play();
         }
+
         private void sound_move_chest()
         {
-            SoundPlayer sp = new SoundPlayer();
-            sp.Stream = Properties.Resources.move_chest;
-            //sp.Load(Properties.Resources.move_player);
-            sp.Play();
+            player1.Open(new Uri(@"move_chest.wav", UriKind.Relative));
+            player1.Play();
         }
-
-
-
 
         private void CreateNewGame(Map newMap)
         {
@@ -343,9 +344,9 @@ namespace Soko
 
 
             //Создание таймера, который запускает эвент с определенным интервалом
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 /fps);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / fps);
             dispatcherTimer.Start();
 
         }
@@ -557,39 +558,49 @@ namespace Soko
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            
             if (currentMap.isWinnable()
                 &&(currentMap.chestRed.currentState == Creature.State.Idle)
                 &&(currentMap.chestBlue.currentState == Creature.State.Idle))
+
             {
-                MessageBox.Show("Оба сундучка доставлены! Поздравляем! Вы прошли карту!");
-                this.Close();
-                //CreateNewGame(new Map(LoadMap()));
+                MessageBoxResult result = MessageBox.Show("Оба сундучка доставлены! Поздравляем! Вы прошли карту!");
+
+
+                
+                    if (result == MessageBoxResult.OK)
+                    {
+                        HelloWindow hellowindow = new HelloWindow();
+                        hellowindow.Show();
+
+                        dispatcherTimer.Stop();
+                        dispatcherTimer.Tick -= new EventHandler(dispatcherTimer_Tick);
+                    }
+                
+                
             }
+
+            //CreateNewGame(new Map(LoadMap()));                                  
+        
+            
+
             //Если состояние игрока/сундука == "в движении", то изменять координаты ректангла в сторону движения
             if (currentMap.playerRed.currentState==Creature.State.Moving)
             {
-                
                 switch (currentMap.playerRed.lastDirection)
                 {
-
                     case Creature.Direction.Up:
                         currentRow_P1 = 0;
                         yPos_Player_Red -=  gameSpeed % (Math.Abs(yPos_Player_Red - currentMap.playerRed.yPos * cellSize) +1);
                         break;
-                        
                     case Creature.Direction.Left:
-                        
                         currentRow_P1 = 1;
                         xPos_Player_Red -= gameSpeed % (Math.Abs(xPos_Player_Red - currentMap.playerRed.xPos * cellSize) + 1);
                         break;
                     case Creature.Direction.Down:
-                        
                         currentRow_P1 = 2;
                         yPos_Player_Red += gameSpeed % (Math.Abs(yPos_Player_Red - currentMap.playerRed.yPos * cellSize) + 1);
                         break;
                     case Creature.Direction.Right:
-                        
                         currentRow_P1 = 3;
                         xPos_Player_Red += gameSpeed % (Math.Abs(xPos_Player_Red - currentMap.playerRed.xPos * cellSize) + 1);
                         break;
@@ -597,14 +608,11 @@ namespace Soko
                         break;
                 }
                 currentFrame_P1 = (currentFrame_P1 + 1 + frameCount) % frameCount;
-                
             }
             if (currentMap.playerBlue.currentState == Creature.State.Moving)
             {
-                
                 switch (currentMap.playerBlue.lastDirection)
                 {
-                   
                     case Creature.Direction.Up:
                         currentRow_P2 = 0;
                         yPos_Player_Blue -= gameSpeed % (yPos_Player_Blue - currentMap.playerBlue.yPos * cellSize + 1);
@@ -628,8 +636,6 @@ namespace Soko
             }
             if (currentMap.chestRed.currentState == Creature.State.Moving)
             {
-
-              
                 switch (currentMap.chestRed.lastDirection)
                 {
                     case Creature.Direction.Up:
@@ -650,7 +656,6 @@ namespace Soko
             }
             if (currentMap.chestBlue.currentState == Creature.State.Moving)
             {
-
                 switch (currentMap.chestBlue.lastDirection)
                 {
                     case Creature.Direction.Up:
@@ -707,38 +712,29 @@ namespace Soko
         {
             switch (e.Key)
             {
-
                 case Key.W:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Up);
-                  
                     break;
                 case Key.Up:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Up);
-          
                     break;
                 case Key.A:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Left);
-                  
                     break;
                 case Key.Left:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Left);
-                  
                     break;
                 case Key.S:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Down);
-                   
                     break;
                 case Key.Down:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Down);
-              
                     break;
                 case Key.D:
                     currentMap.MoveTo(currentMap.playerRed, Creature.Direction.Right);
-                   
                     break;
                 case Key.Right:
                     currentMap.MoveTo(currentMap.playerBlue, Creature.Direction.Right);
-               
                     break;
 
                 case Key.R:
@@ -750,6 +746,7 @@ namespace Soko
 
                         this.Close();
                         System.Diagnostics.Process.Start(GetType().Assembly.Location);
+                        
 
                     }
 
@@ -758,9 +755,10 @@ namespace Soko
                     //MessageBox.Show();
                     break;
             }
+
             if ((currentMap.playerRed.currentState == Creature.State.Moving) ||
                (currentMap.playerBlue.currentState == Creature.State.Moving))
-                {
+            {
                 sound_move_player();
             }
             if ((currentMap.chestRed.currentState == Creature.State.Moving) ||
@@ -768,21 +766,29 @@ namespace Soko
             {
                 sound_move_chest();
             }
+
         }
 
         private void rule_Click(object sender, RoutedEventArgs e)
         {
             Rules rules = new Rules();
             rules.Show();
+            
         }
 
-        private void Open_Click(object sender, RoutedEventArgs e)
+        private void exit_Click(object sender, RoutedEventArgs e)
         {
-            
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.ShowDialog();
-            player.Open(new Uri(dlg.FileName, UriKind.Relative));
-            player.Play();
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите оставить" + '\n' + "девочек в подземелье одних?", " ", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                HelloWindow hellowindow = new HelloWindow();
+                hellowindow.Show();
+
+                this.Close();
+            }
+
         }
+
     }
 }
