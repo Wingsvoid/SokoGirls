@@ -15,10 +15,39 @@
                 <ImageBrush ImageSource="Button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="exit" Content="" Height="32" Canvas.Left="1324" Width="46" BorderBrush="{x:Null}" Click="exit_Click" Style="{DynamicResource GameStyle}">
-            <Button.Background>
-                <ImageBrush ImageSource="other/exit.png"/>
-            </Button.Background>
+        <Button x:Name="exit" Content="" Height="32" Canvas.Left="1324" Width="46" BorderBrush="{x:Null}" Click="exit_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/other/exit.png"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Background" TargetName="border">
+                                            <Setter.Value>
+                                                <ImageBrush ImageSource="/other/exitpress.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            
         </Button>
     </Canvas>
 

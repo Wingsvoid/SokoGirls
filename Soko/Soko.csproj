@@ -212,6 +212,13 @@
     <Resource Include="tiles\floor_blue.jpg" />
     <Resource Include="tiles\floor_red.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other\exitpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other\Buttonmove.png" />
+    <Resource Include="other\Buttonpress.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

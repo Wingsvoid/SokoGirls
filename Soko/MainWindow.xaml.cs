@@ -794,6 +794,9 @@ namespace Soko
                 this.Close();
             }
 
+           // exit.Background = new ImageBrush(new BitmapImage(new Uri(@"C:/image.jpg")));
+
+
         }
 
     }
