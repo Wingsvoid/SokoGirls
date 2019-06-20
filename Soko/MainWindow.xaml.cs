@@ -102,9 +102,7 @@ namespace Soko
             CreateNewGame(new Map(xDoc));
 
 
-            player.Open(new Uri(@"background.wav", UriKind.Relative));
-            player.Play();
-            player.Volume = 40.0 / 100.0;
+
             
         }
 
@@ -348,6 +346,10 @@ namespace Soko
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / fps);
             dispatcherTimer.Start();
+
+            player.Open(new Uri(@"background.wav", UriKind.Relative));
+            player.Play();
+            player.Volume = 40.0 / 100.0;
 
         }
 
@@ -746,7 +748,11 @@ namespace Soko
 
                         this.Close();
                         System.Diagnostics.Process.Start(GetType().Assembly.Location);
-                        
+                        //dispatcherTimer.Stop();
+                        //XmlDocument xDoc = new XmlDocument();
+                        //string xPath = "data.xml";
+                        //xDoc.Load(xPath);
+                        //CreateNewGame(new Map(xDoc));
 
                     }
 

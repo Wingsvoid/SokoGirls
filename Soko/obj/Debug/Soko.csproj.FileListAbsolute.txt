@@ -56,3 +56,29 @@ D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\App.baml
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\MapEditor.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\MapEditor.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.csprojAssemblyReference.cache
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\HelloWindow.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MainWindow.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MapEditor.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Rules.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\App.g.cs
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko_MarkupCompile.cache
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko_MarkupCompile.lref
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\App.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\HelloWindow.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MainWindow.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MapEditor.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Rules.baml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.g.resources
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.csproj.GenerateResource.cache
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.pdb
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\Soko.exe.config
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\Soko.exe
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\Soko.pdb
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\nunit.framework.dll
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\nunit.framework.pdb
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\bin\Debug\nunit.framework.xml
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.Properties.Resources.resources
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.csproj.CoreCompileInputs.cache
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.csproj.CopyComplete
+D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.exe
