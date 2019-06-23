@@ -19,68 +19,33 @@ namespace Soko
     /// </summary>
     public partial class MapEditor : Window
     {
-        
+        Map currentMap;
 
         public MapEditor()
         {
             InitializeComponent();
 
-            ////указыается количество строк и столбцов в сетке
-            //head.Rows = 4;
-            //head.Columns = 1;
-            ////указываются размеры сетки (число ячеек * (размер кнопки в ячейки + толщина её границ))
-            //head.Width = 4 * (50 + 4);
-            //head.Height = 4 * (50 + 4);
-            ////толщина границ сетки
-            //head.Margin = new Thickness(5, 5, 5, 5);
-
-
-            //for (int i = 0; i < 2 * 2; i++)
-            //{
-            //    //создание кнопки
-            //    Button btn = new Button();
-            //    //запись номера кнопки
-            //     btn.Tag = i;
-            //    //установка размеров кнопки
-            //    btn.Width = 50;
-            //     btn.Height = 50;
-            //    //текст на кнопке
-            //    btn.Content = " ";
-            //    //толщина границ кнопки
-            //    btn.Margin = new Thickness(2);
-            //    //при нажатии кнопки, будет вызываться метод Btn_Click
-            //     btn.Click += btn_Click;
-            //    //добавление кнопки в сетку
-            //    head.Children.Add(btn);
-
-
-               
-
-
-                
-            //}
-
-
+           
 
             //указыается количество строк и столбцов в сетке
-            head.Rows = 15;
+            head.Rows = 17;
             head.Columns = 25;
             //указываются размеры сетки (число ячеек * (размер кнопки в ячейки + толщина её границ))
-            head.Width = 25 * (50 + 4);
-            head.Height = 15 * (50 + 4);
-            //толщина границ сетки
-            head.Margin = new Thickness(5, 5, 5, 5);
+            head.Width = 17 * 35;
+            head.Height = 25 * 35;
+
+            currentMap = new Map(head.Rows, head.Columns);
 
 
-            for (int i = 0; i < 15 * 25; i++)
+            for (int i = 0; i < head.Rows * head.Columns; i++)
             {
                 //создание кнопки
                 Button btn = new Button();
                 //запись номера кнопки
                 btn.Tag = i;
                 //установка размеров кнопки
-                btn.Width = 50;
-                btn.Height = 50;
+                btn.Width = 35;
+                btn.Height = 35;
                 //текст на кнопке
                 btn.Content = " ";
                 //толщина границ кнопки
@@ -97,7 +62,7 @@ namespace Soko
 
         private void btn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-          //  btn.PreviewMouseDown += btn_MouseDown;
+       
 
             int n = (int)((Button)sender).Tag;
 
@@ -105,7 +70,7 @@ namespace Soko
             BitmapImage closecell = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_stop2.png", UriKind.Absolute));
             BitmapImage finishcell = new BitmapImage(new Uri(@"pack://application:,,,/tiles/floor_red.jpg", UriKind.Absolute));
 
-            MessageBox.Show(e.LeftButton.ToString());
+           
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -137,5 +102,7 @@ namespace Soko
                 ((Button)sender).Content = stackPnl2;
             }
         }
+
+      
     }
 }

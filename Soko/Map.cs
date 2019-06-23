@@ -38,23 +38,23 @@ namespace Soko
             height = h;
             width = w;
             grid = new List<Cell>();
-            playerRed = new Creature(0, 0);
-            playerBlue = new Creature(1, 0);
-            chestRed = new Creature(0, 1);
-            chestBlue = new Creature(1, 1);
+            //playerRed = new Creature(0, 0);
+            //playerBlue = new Creature(1, 0);
+            //chestRed = new Creature(0, 1);
+            //chestBlue = new Creature(1, 1);
             for (int rownumber=0; rownumber < height; rownumber++)
             {
                 for (int colnumber=0; colnumber < width; colnumber++)
                 {
-                    grid.Add(new Cell(colnumber, rownumber));
+                    grid.Add(new Cell(colnumber, rownumber, Cell.cellType.Open));
                 }
             }
-            GetCell(playerRed.xPos, playerRed.yPos).setObject(playerRed);
-            GetCell(playerBlue.xPos, playerBlue.yPos).setObject(playerBlue);
-            GetCell(chestRed.xPos, chestRed.yPos).setObject(chestRed);
-            GetCell(chestBlue.xPos, chestBlue.yPos).setObject(chestBlue);
-            GetCell(0, 2).Type = Cell.cellType.RedFinish;
-            GetCell(1, 2).Type = Cell.cellType.BlueFinish;
+            //GetCell(playerRed.xPos, playerRed.yPos).setObject(playerRed);
+            //GetCell(playerBlue.xPos, playerBlue.yPos).setObject(playerBlue);
+            //GetCell(chestRed.xPos, chestRed.yPos).setObject(chestRed);
+            //GetCell(chestBlue.xPos, chestBlue.yPos).setObject(chestBlue);
+            //GetCell(0, 2).Type = Cell.cellType.RedFinish;
+            //GetCell(1, 2).Type = Cell.cellType.BlueFinish;
         }
 
         // создание карты исходя из массива координат открытых клеток
