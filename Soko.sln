@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.156
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soko", "Soko\Soko.csproj", "{00EC080C-E5DD-4C89-B38E-6080C8BA04A6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SokoGirls", "SokoGirls\SokoGirls.vdproj", "{A2908682-EEEB-4D49-9969-7C46ABDD6C58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{00EC080C-E5DD-4C89-B38E-6080C8BA04A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00EC080C-E5DD-4C89-B38E-6080C8BA04A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00EC080C-E5DD-4C89-B38E-6080C8BA04A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2908682-EEEB-4D49-9969-7C46ABDD6C58}.Debug|Any CPU.ActiveCfg = Debug
+		{A2908682-EEEB-4D49-9969-7C46ABDD6C58}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

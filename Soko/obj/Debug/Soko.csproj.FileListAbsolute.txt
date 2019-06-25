@@ -56,7 +56,6 @@ D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\App.baml
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\MapEditor.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls-754246d763c82bbdca4a02c584c85ea3dc7936db\Soko\obj\Debug\MapEditor.baml
-D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\Soko.csprojAssemblyReference.cache
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\HelloWindow.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MainWindow.g.cs
 D:\~СибГУТИ\Visual Studio\C#\SokoGirls ver. new\Soko\obj\Debug\MapEditor.g.cs
