@@ -96,14 +96,27 @@ namespace Soko
              //CreateNewGame(new Map(LoadMap())); //создать новую игру с загруженной картой
 
             //создать новую игру с загруженной картой из xml-файла
+            //XmlDocument xDoc = new XmlDocument();
+            //string xPath = "data.xml";
+            //xDoc.Load(xPath);
+            //CreateNewGame(new Map(xDoc));
+
             XmlDocument xDoc = new XmlDocument();
-            string xPath = "data.xml";
-            xDoc.Load(xPath);
-            CreateNewGame(new Map(xDoc));
+            string xPath;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML Data (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                xPath = openFileDialog.FileName;
+                xDoc.Load(xPath);
+                CreateNewGame(new Map(xDoc));
+            }
+            else this.Close();
 
 
 
-            
+
         }
 
         private void sound_move_player()
@@ -222,7 +235,7 @@ namespace Soko
             rect_tree4.Fill = ib_tree4;
 
             //Настройки кисти для анимации Красного Игрока
-            currentRow_P1 = 0;
+            currentRow_P1 = 2;
             currentFrame_P1 = 0;
             ib_Player_Red.AlignmentX = AlignmentX.Center;
             ib_Player_Red.AlignmentY = AlignmentY.Top;
@@ -232,7 +245,7 @@ namespace Soko
             rect_Player_Red.Fill = ib_Player_Red;
 
             //Настройки кисти для анимации Синего игрока
-            currentRow_P2 = 0;
+            currentRow_P2 = 2;
             currentFrame_P2 = 0;
             ib_Player_Blue.AlignmentX = AlignmentX.Center;
             ib_Player_Blue.AlignmentY = AlignmentY.Top;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Soko
 {
@@ -78,6 +79,13 @@ namespace Soko
         public void Arrived()
         {
             _currentState = State.Idle;
+        }
+        public Point PosToPoint()
+        {
+            Point _point = new Point();
+            _point.X = xPos;
+            _point.Y = yPos;
+            return _point;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32;
 using NUnit.Framework;
 
 namespace Soko
@@ -11,19 +12,10 @@ namespace Soko
 
     internal class functions
     {
-       
 
 
-        public int add(int a, int b)
-        {
-           return a + b;
-        }
 
 
-        public int CalculateCellSize(int h,int w)
-        {
-            return h*w;
-        }
 
 
     }

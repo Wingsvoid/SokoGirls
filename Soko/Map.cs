@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
 
 namespace Soko
@@ -38,21 +39,21 @@ namespace Soko
             height = h;
             width = w;
             grid = new List<Cell>();
-            //playerRed = new Creature(0, 0);
-            //playerBlue = new Creature(1, 0);
-            //chestRed = new Creature(0, 1);
-            //chestBlue = new Creature(1, 1);
+            playerRed = new Creature(0, 0);
+            playerBlue = new Creature(1, 0);
+            chestRed = new Creature(0, 1);
+            chestBlue = new Creature(1, 1);
             for (int rownumber=0; rownumber < height; rownumber++)
             {
                 for (int colnumber=0; colnumber < width; colnumber++)
                 {
-                    grid.Add(new Cell(colnumber, rownumber, Cell.cellType.Open));
+                    grid.Add(new Cell(colnumber, rownumber, Cell.cellType.Close));
                 }
             }
-            //GetCell(playerRed.xPos, playerRed.yPos).setObject(playerRed);
-            //GetCell(playerBlue.xPos, playerBlue.yPos).setObject(playerBlue);
-            //GetCell(chestRed.xPos, chestRed.yPos).setObject(chestRed);
-            //GetCell(chestBlue.xPos, chestBlue.yPos).setObject(chestBlue);
+            GetCell(playerRed.xPos, playerRed.yPos).setObject(playerRed);
+            GetCell(playerBlue.xPos, playerBlue.yPos).setObject(playerBlue);
+            GetCell(chestRed.xPos, chestRed.yPos).setObject(chestRed);
+            GetCell(chestBlue.xPos, chestBlue.yPos).setObject(chestBlue);
             //GetCell(0, 2).Type = Cell.cellType.RedFinish;
             //GetCell(1, 2).Type = Cell.cellType.BlueFinish;
         }
@@ -93,7 +94,7 @@ namespace Soko
             GetCell(23, 3).Type = Cell.cellType.RedFinish;
             GetCell(23, 4).Type = Cell.cellType.BlueFinish;
 
-           SaveToXml(); 
+           //SaveToXml(); 
         }
 
         // создание карты исходя из содержимого Xml-документа
@@ -258,6 +259,14 @@ namespace Soko
             return grid.Find(z => z.xPos == x && z.yPos == y);
         }
 
+        public void ChangeCellType(Cell _cell, Cell.cellType _type)
+        {
+            if (!_cell.isBusy)
+            {
+                _cell.Type = _type;
+            }
+        }
+
         public Cell GetNearCell(Cell currentCell, Creature.Direction direction) 
             //возвращает клетку, которая находится в выбранном направлении от текущей клетки
         {
@@ -283,7 +292,7 @@ namespace Soko
             if (near is null) return currentCell;
             else return near;
         }
-        public void MoveTo(Creature player, Creature.Direction direction)
+        public Point MoveTo(Creature player, Creature.Direction direction)
             //перемещает игрока в выбранном направлении
         {
             Cell currentCell = GetCell(player.xPos, player.yPos);
@@ -317,10 +326,11 @@ namespace Soko
                     }
                 }
             }
+            return player.PosToPoint();
         }
 
         // сохранение карты в Xml-документ
-        public void SaveToXml()
+        public XmlDocument SaveToXml()
         {
             XmlDocument xDoc = new XmlDocument();
             XmlElement xRoot = xDoc.CreateElement("map");
@@ -403,9 +413,7 @@ namespace Soko
             xRoot.AppendChild(xbranch);
 
             xDoc.AppendChild(xRoot);
-            xDoc.PreserveWhitespace = true;
-            string xPath = "data.xml";
-            xDoc.Save(xPath);
+            return xDoc;
         }
 
         public bool isWinnable()

@@ -191,10 +191,10 @@
     <Resource Include="other\menu1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="redgirl.png" />
+    <Resource Include="sprites\redgirl.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bluegirl.png" />
+    <Resource Include="sprites\bluegirl.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background.wav" />
@@ -218,6 +218,9 @@
   <ItemGroup>
     <Resource Include="other\Buttonmove.png" />
     <Resource Include="other\Buttonpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other\mapeditorbackg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

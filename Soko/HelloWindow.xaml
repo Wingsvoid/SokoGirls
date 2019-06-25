@@ -34,8 +34,12 @@
                 <ImageBrush ImageSource="Button.png"/>
             </Button.Background>
         </Button>
-        <Image Grid.Column="2" Margin="184,352,499,28" Source="redgirl.png" Stretch="Fill"/>
-        <Image Grid.Column="2" Margin="504,352,179,28" Source="bluegirl.png" Stretch="Fill"/>
+        <Image Grid.Column="2" Margin="184,352,499,28" Source="sprites/redgirl.png" Stretch="Fill">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="sprites/redgirl.png" Stretch="Uniform"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image Grid.Column="2" Margin="504,352,179,28" Source="sprites/bluegirl.png" Stretch="Fill"/>
 
     </Grid>
 </Window>

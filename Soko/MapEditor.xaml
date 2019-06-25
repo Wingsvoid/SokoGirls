@@ -5,53 +5,357 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Soko"
         mc:Ignorable="d"
-        Title="MapEditor" Height="450" Width="1097" Background="#FFF1F1F1">
-    <Canvas HorizontalAlignment="Left" Height="416" VerticalAlignment="Top" Width="1087">
-        <UniformGrid x:Name="head" Height="325" Canvas.Left="10" Canvas.Top="81" Width="1080" Background="#FFF1EDED">
-            <Button x:Name="btn" Content="" MouseDown="btn_MouseDown"/>
+        Title="MapEditor" Height="698" Width="1375" Background="#FFF1F1F1" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="other/mapeditorbackg.png" Stretch="UniformToFill"/>
+        </Canvas.Background>
+        <UniformGrid x:Name="head" Canvas.Left="10" Canvas.Top="81" Background="#FFF1EDED" MinWidth="100" MinHeight="100" Width="100">
+            <!--<Button x:Name="btn" Content="" MouseDown="btn_MouseDown"/>-->
         </UniformGrid>
         <Grid Height="76" Canvas.Left="10" Width="770">
-            <Button x:Name="bluegirl" Content="" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="74" Height="56" BorderBrush="{x:Null}">
+            <Button x:Name="bluegirl" Content="" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="74" Height="56" BorderBrush="{x:Null}" Click="Bluegirl_Click">
+
                 <Button.Background>
-                    <ImageBrush ImageSource="bluegirl.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="sprites/bluegirl.png" Stretch="Uniform"/>
                 </Button.Background>
 
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#FF003AFF" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
             </Button>
-            <Button x:Name="redgirl" Content="" Margin="79,10,617,10" BorderBrush="{x:Null}">
+            <Button x:Name="redgirl" Content="" Margin="79,10,617,10" BorderBrush="{x:Null}" Click="Redgirl_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="redgirl.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="sprites/redgirl.png" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="Red" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="chestblue" Content="" Margin="158,10,538,10" BorderBrush="{x:Null}">
+            <Button x:Name="chestblue" Content="" Margin="158,10,538,10" BorderBrush="{x:Null}" Click="Chestblue_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="sprites/chest_blue.png" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#FF003AFF" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="chestred" Content="" Margin="237,10,459,10" BorderBrush="{x:Null}">
+            <Button x:Name="chestred" Content="" Margin="237,10,459,10" BorderBrush="{x:Null}" Click="Chestred_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="sprites/chest_red.png" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="Red" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="floorblue" Content="" Margin="316,10,380,10" BorderBrush="{x:Null}">
+            <Button x:Name="floorblue" Content="" Margin="316,10,380,10" BorderBrush="{x:Null}" Click="Floorblue_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="tiles/floor_blue.jpg" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#FF000CFF" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="floorred" Content="" Margin="395,10,301,10" BorderBrush="{x:Null}">
+            <Button x:Name="floorred" Content="" Margin="395,10,301,10" BorderBrush="{x:Null}" Click="Floorred_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="tiles/floor_red.jpg" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="Red" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="opencell" Content="" Margin="474,10,222,10" BorderBrush="{x:Null}">
+            <Button x:Name="opencell" Content="" Margin="474,10,222,10" BorderBrush="{x:Null}" Click="Opencell_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="tiles2/floor.png" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#FFA03910" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
-            <Button x:Name="stopcell" Content="" Margin="553,10,143,10" BorderBrush="{x:Null}">
+            <Button x:Name="stopcell" Content="" Margin="553,10,143,10" BorderBrush="{x:Null}" Click="Stopcell_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="tiles/floor_stop2.png" Stretch="Uniform"/>
                 </Button.Background>
+
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="#FF3C3C3C" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+
             </Button>
         </Grid>
+        <Button x:Name="newMap" Content="Новая карта" Canvas.Left="1093" Canvas.Top="60" Width="254" Height="87" FontFamily="VEGeorgianBrushCyrillicGreek" Style="{DynamicResource GameStyle}" FontSize="22" BorderBrush="{x:Null}" Click="newMap_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="saveMap" Content="Сохранить карту" Canvas.Left="1093" Canvas.Top="235" Width="254" Height="87" FontFamily="VEGeorgianBrushCyrillicGreek" Style="{DynamicResource GameStyle}" FontSize="22" BorderBrush="{x:Null}" Click="saveMap_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="loadMap" Content="Загрузить карту" Canvas.Left="1093" Canvas.Top="407" Width="254" Height="87" FontFamily="VEGeorgianBrushCyrillicGreek" Style="{DynamicResource GameStyle}" FontSize="22" BorderBrush="{x:Null}" Click="loadMap_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Button.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lbl_currentType" Content="Выбранный тип клетки: " Canvas.Left="780" Canvas.Top="10" Width="300" Foreground="White"/>
+        <Label x:Name="lbl_currentObj" Content="Выбранный объект: " Canvas.Left="780" Canvas.Top="41" Foreground="White"/>
+        <Button Content="" Canvas.Left="1314" Canvas.Top="10" Width="51" Height="39" BorderBrush="{x:Null}" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="other/exit.png"/>
+            </Button.Background>
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/other/exit.png"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Background" TargetName="border">
+                                            <Setter.Value>
+                                                <ImageBrush ImageSource="/other/exitpress.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
     </Canvas>
 </Window>

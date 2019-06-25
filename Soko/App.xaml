@@ -17,7 +17,10 @@
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="other/Buttonmove.png"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <LinearGradientBrush x:Key="Button.MouseOver.Border" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="#FF3C3C3C" Offset="1"/>
+        </LinearGradientBrush>
         <ImageBrush x:Key="Button.Pressed.Background" ImageSource="other/Buttonpress.png"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
